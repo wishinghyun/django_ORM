@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h3>{{ article.pk }}번 째 게시글</h3>
+  <h1>제목 : {{ article.title }}</h1>
+  <h2>내용 : {{ article.content }}</h2>
+  <h4>생성 시간 : {{ article.created_at }}</h4>
+  <h4>수정 시간 : {{ article.uadated_at }}</h4>
+  <a href="{% url 'articles:index' %}">목록 보기</a>
+  <a href="{% url 'articles:delete' article.pk %}">삭제</a>
+  <a href="{% url 'articles:edit' article.pk %}">수정</a>
+{% endblock %}

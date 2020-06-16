@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>소개 페이지</h1>
+<hr>
+<p>이름 : 김현수</p>
+<p>나이 : 28</p>
+<hr>
+<a href="{% url 'articles:index' %}">index로 돌아가기</a>
+{% endblock %}

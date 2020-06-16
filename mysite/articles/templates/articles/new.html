@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>글 작성 페이지</h1>
+<hr>
+<form action="{% url 'articles:create' %}" method="POST">
+  <!-- method를 POST로 할 경우 csrf_token 추가 -->
+  {% csrf_token %} 
+  <label for="name">제목 : </label>
+  <input type="text" id="name" name="title">
+
+  <label for="cnt">내용 : </label>
+  <input type="text" id="cnt" name="content">
+
+  <input type="submit" value="글 작성">
+</form>
+{% endblock %}
