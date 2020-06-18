@@ -6,6 +6,9 @@
   <h4>생성 시간 : {{ article.created_at }}</h4>
   <h4>수정 시간 : {{ article.uadated_at }}</h4>
   <a href="{% url 'articles:index' %}">목록 보기</a>
-  <a href="{% url 'articles:delete' article.pk %}">삭제</a>
   <a href="{% url 'articles:edit' article.pk %}">수정</a>
+  <form action="{% url 'articles:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="삭제">
+  </form>
 {% endblock %}

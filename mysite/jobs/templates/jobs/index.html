@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block body %}
+  <form action="{% url 'jobs:past_life' %}" method="POST">
+    <br>
+    <div class="form_group row">
+      {% csrf_token %}
+      <br>
+      <label class="col-sm-1 col-form-label" for="username">이름   :</label>
+      <div class="col-sm-3">
+        <input class="form-control" type="text" id="username" name="username" placeholder="이름을 입력해주세요">
+      </div>
+      <input class="btn btn-primary" type="submit" value="입력">
+    </div>
+  </form>
+{% endblock %}

@@ -48,17 +48,22 @@ def detail(request, article_pk):
 #4 글 삭제를 위한 링크 detail에 작성
 
 def delete(request, article_pk):
-    # request.method로 어떻게 해서 POST일때만 삭제되게 
     article = Article.objects.get(pk=article_pk)
-    article.delete()
-    return redirect('articles:index')
+    # request.method로 어떻게 해서 POST일때만 삭제되게 
+    if request.method == "POST":
+        article.delete()
+        return redirect('articles:index')
+    #POST가 아니면 원래의 detail로 보냄
+    return redirect('articles:detail', article.pk)
 
+#edit
 #1 특정 글 수정을 위한 경로 생성
 #1-1 /articles/1/edit/
 #2 글 수정 template을 render하는 edit view작성
 #2-1 해당 template에 form tag 작성
 #2-2 각 input tag 내부에 기존 내용이 들어있어야 함
 #2-3 value속성을 활용
+#update
 #3 edit 보낸 데이터 처리를 위한 경로 생성
 #3-1 /articles/1/update/
 #4 글 수정 처리를 하는 update view작성
